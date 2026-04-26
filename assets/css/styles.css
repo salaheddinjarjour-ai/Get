@@ -49,10 +49,10 @@ img { display: block; max-width: 100%; }
   justify-content: space-between;
   gap: 24px;
 }
-.logo { display: inline-flex; align-items: center; color: var(--white); font-weight: 900; }
-.logo-img { height: 48px; width: auto; display: block; object-fit: contain; }
-.site-footer .logo-img { filter: brightness(0) invert(1); }
-h1 span, .dark-band span { color: var(--blue); }
+.logo { display: inline-flex; align-items: center; gap: 10px; color: var(--white); font-weight: 900; }
+.logo-mark { font-size: 34px; letter-spacing: -2px; line-height: 1; }
+.logo-mark span, h1 span, .dark-band span { color: var(--blue); }
+.logo-text { font-size: 13px; line-height: 1.08; letter-spacing: .04em; }
 .menu { display: flex; gap: 26px; color: var(--white); font-weight: 750; font-size: 14px; }
 .menu a { opacity: .84; padding: 28px 0 24px; border-bottom: 2px solid transparent; }
 .menu a:hover, .menu a.active { opacity: 1; color: #77a2ff; border-color: #77a2ff; }
