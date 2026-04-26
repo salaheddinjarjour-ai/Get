@@ -220,19 +220,17 @@
           <div>
             <small>Contact Us</small>
             <h1>Let's build something <span>great</span> together.</h1>
-            <p>Tell us what you want to build. The form opens your email client with the message ready to send.</p>
+            <p>Fill in the form and we'll get back to you within 24 hours.</p>
           </div>
           <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=80" alt="Client consultation meeting">
         </div>
       </div>
       <section class="section-pad">
         <div class="container contact-grid">
-          <!-- Web3Forms: free serverless form for Cloudflare Pages -->
+          <!-- Contact form — submits to Cloudflare Pages Function at /api/contact -->
           <form class="contact-form" id="contactForm">
-            <!-- Web3Forms access key — get yours free at web3forms.com -->
-            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
             <!-- Honeypot spam protection -->
-            <input type="checkbox" name="botcheck" style="display:none">
+            <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
             <h2>Send Us a Message</h2>
             <input required name="name" placeholder="Full Name" autocomplete="name">

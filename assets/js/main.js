@@ -128,27 +128,34 @@ document.getElementById("blogSearch").addEventListener("input", event => renderP
 
 document.getElementById("contactForm").addEventListener("submit", async event => {
   event.preventDefault();
-  const form   = event.currentTarget;
-  const note   = document.getElementById("formNote");
-  const btn    = form.querySelector("button.send");
+  const form  = event.currentTarget;
+  const note  = document.getElementById("formNote");
+  const btn   = form.querySelector("button.send");
 
   btn.disabled    = true;
   btn.textContent = "Sending…";
   note.textContent = "";
 
-  const data = Object.fromEntries(new FormData(form));
+  const payload = {
+    name:      form.querySelector("[name='name']").value.trim(),
+    email:     form.querySelector("[name='email']").value.trim(),
+    phone:     form.querySelector("[name='phone']").value.trim(),
+    subject:   form.querySelector("[name='subject']").value.trim(),
+    message:   form.querySelector("[name='message']").value.trim(),
+    botcheck:  form.querySelector("[name='botcheck']").checked,
+  };
 
   try {
-    const res = await fetch("https://api.web3forms.com/submit", {
+    const res  = await fetch("/api/contact", {
       method:  "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body:    JSON.stringify(data)
+      headers: { "Content-Type": "application/json" },
+      body:    JSON.stringify(payload),
     });
 
     const json = await res.json();
 
     if (res.ok && json.success) {
-      note.textContent = "✅ Message sent! We'll be in touch soon.";
+      note.textContent = "✅ Message sent! We'll be in touch within 24 hours.";
       note.style.color = "#22c55e";
       form.reset();
     } else {
