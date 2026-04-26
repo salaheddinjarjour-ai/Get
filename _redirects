@@ -1,2 +1,2 @@
-# www → apex canonical redirect
-https://www.getservices.live/* https://getservices.live/:splat 301
+# Note: www → apex redirect is handled via Cloudflare Dashboard > Redirect Rules
+# Only relative path redirects are supported here in Workers deployments

@@ -1,0 +1,6 @@
+# Exclude these from being uploaded as static assets
+.git/
+.wrangler/
+wrangler.jsonc
+node_modules/
+.DS_Store
