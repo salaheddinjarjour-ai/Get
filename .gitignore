@@ -3,8 +3,8 @@
 .AppleDouble
 .LSOverride
 
-# Netlify
-.netlify/
+# Cloudflare Pages
+.wrangler/
 
 # Editor directories
 .vscode/

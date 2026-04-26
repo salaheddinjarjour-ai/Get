@@ -128,31 +128,36 @@ document.getElementById("blogSearch").addEventListener("input", event => renderP
 
 document.getElementById("contactForm").addEventListener("submit", async event => {
   event.preventDefault();
-  const form    = event.currentTarget;
-  const note    = document.getElementById("formNote");
-  const btn     = form.querySelector("button.send");
+  const form   = event.currentTarget;
+  const note   = document.getElementById("formNote");
+  const btn    = form.querySelector("button.send");
 
-  btn.disabled     = true;
-  btn.textContent  = "Sending…";
+  btn.disabled    = true;
+  btn.textContent = "Sending…";
   note.textContent = "";
 
+  const data = Object.fromEntries(new FormData(form));
+
   try {
-    const res = await fetch("/", {
+    const res = await fetch("https://api.web3forms.com/submit", {
       method:  "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body:    new URLSearchParams(new FormData(form)).toString()
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body:    JSON.stringify(data)
     });
 
-    if (res.ok) {
+    const json = await res.json();
+
+    if (res.ok && json.success) {
       note.textContent = "✅ Message sent! We'll be in touch soon.";
       note.style.color = "#22c55e";
       form.reset();
     } else {
-      throw new Error("Server error");
+      throw new Error(json.message || "Server error");
     }
-  } catch {
-    note.textContent = "❌ Something went wrong. Please email us directly at get.corp.je@gmail.com";
+  } catch (err) {
+    note.textContent = "❌ Something went wrong. Please email us at get.corp.je@gmail.com";
     note.style.color = "#ef4444";
+    console.error("Form error:", err);
   } finally {
     btn.disabled    = false;
     btn.textContent = "Send Message";

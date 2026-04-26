@@ -227,15 +227,12 @@
       </div>
       <section class="section-pad">
         <div class="container contact-grid">
-          <!-- Netlify Forms: the netlify attribute enables serverless form handling -->
-          <form class="contact-form" id="contactForm"
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                netlify-honeypot="bot-field">
-            <!-- Hidden fields required by Netlify -->
-            <input type="hidden" name="form-name" value="contact">
-            <input type="hidden" name="bot-field" style="display:none">
+          <!-- Web3Forms: free serverless form for Cloudflare Pages -->
+          <form class="contact-form" id="contactForm">
+            <!-- Web3Forms access key — get yours free at web3forms.com -->
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <!-- Honeypot spam protection -->
+            <input type="checkbox" name="botcheck" style="display:none">
 
             <h2>Send Us a Message</h2>
             <input required name="name" placeholder="Full Name" autocomplete="name">

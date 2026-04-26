@@ -1,0 +1,2 @@
+# www → apex canonical redirect
+https://www.getservices.live/* https://getservices.live/:splat 301
