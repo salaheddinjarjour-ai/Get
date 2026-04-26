@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Netlify
+.netlify/
+
+# Editor directories
+.vscode/
+.idea/
